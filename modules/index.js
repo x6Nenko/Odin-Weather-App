@@ -1,6 +1,11 @@
 const key = "dfaddbaaa3d1411895a95255231211";
+import { displayWeatherData } from "./dom.js";
+
+const submitLocationBtn = document.getElementById("submitLocation");
 
 async function getWeather(location) {
+    await location;
+
     try {
         const response = await fetch(`https://api.weatherapi.com/v1/current.json?key=${key}&q=${location}`, {mode: 'cors'});
         const weatherData = await response.json();
@@ -15,12 +20,12 @@ function processData(weatherData) {
         country: weatherData.location.country,
         region: weatherData.location.region,
         cityName: weatherData.location.name,
-        localtime: weatherData.location.localtime,
+        localTime: weatherData.location.localtime,
         condition: weatherData.current.condition.text,
         temp_c: weatherData.current.temp_c,
     };
 
-    console.log(processedWeatherData);
+    displayWeatherData(processedWeatherData);
 };
 
 function submitLocation() {
@@ -28,3 +33,4 @@ function submitLocation() {
     getWeather(locationInput.value);
 };
 
+submitLocationBtn.addEventListener("click", submitLocation);

@@ -10,9 +10,19 @@
     <div class="input-holder">
         <label for="location">Location:</label>
         <input type="text" name="location" id="location">
-        <button type="submit" onclick="submitLocation()">Submit</button>
+        <button type="submit" id="submitLocation">Submit</button>
     </div>
 
-    <script src="index.js"></script>
+    <div class="weather-data">
+        <p id="cityName"></p>
+        <p id="region"></p>
+        <p id="country"></p>
+        <p id="localTime"></p>
+        <p id="condition"></p>
+        <p id="tempC"></p>
+    </div>
+
+    <script src="./modules/index.js" type="module"></script>
+    <script src="./modules/dom.js" type="module"></script>
 </body>
 </html>
