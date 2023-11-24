@@ -4,22 +4,54 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Weather App</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="input-holder">
-        <label for="location">Location:</label>
-        <input type="text" name="location" id="location">
-        <button type="submit" id="submitLocation">Submit</button>
-    </div>
+    <div class="wrapper">
+        <div class="input-holder">
+            <label for="location">Location</label>
+            <input type="text" name="location" id="location">
+            <button type="submit" id="submitLocation">Submit</button>
+        </div>
+        
+        <div class="main-info-container">
+            <div class="sub-info">
+                <div>
+                    <p class="location-container"><span id="cityName"></span> · <span id="region"></span> · <span id="country"></span></p>
+                </div>
+                <span id="localTime" class="least-attention"></span>
+            </div>
+        
+            <div class="main-info">
+                <div class="header-container">
+                    <div class="condition-container">
+                        <img src="" alt="Condition Icon" id="conditionIcon">
+                        <p><span id="tempC"></span> <span class="celsius">°C</span></p>
+                    </div>
+                    <p id="condition" class="least-attention"></p>
+                </div>
 
-    <div class="weather-data">
-        <p id="cityName"></p>
-        <p id="region"></p>
-        <p id="country"></p>
-        <p id="localTime"></p>
-        <p id="condition"></p>
-        <p id="tempC"></p>
+                <div class="main-container">
+                    <div class="card">
+                        <p>Feels Like</p>
+                        <p><span id="feelslikeC"></span> °C</p>
+                    </div>
+
+                    <div class="card">
+                        <p>Humidity</p>
+                        <p><span id="humidity"></span> %</p>
+                    </div>
+
+                    <div class="card">
+                        <p>Wind Speed</p>
+                        <p><span id="windKph"></span> km/h</p>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 
     <script src="./modules/index.js" type="module"></script>

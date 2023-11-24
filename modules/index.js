@@ -16,13 +16,18 @@ async function getWeather(location) {
 };
 
 function processData(weatherData) {
+    console.log(weatherData);
     const processedWeatherData = {
         country: weatherData.location.country,
         region: weatherData.location.region,
         cityName: weatherData.location.name,
         localTime: weatherData.location.localtime,
         condition: weatherData.current.condition.text,
+        conditionIcon: weatherData.current.condition.icon,
         temp_c: weatherData.current.temp_c,
+        feelslike_c: weatherData.current.feelslike_c,
+        humidity: weatherData.current.humidity,
+        wind_kph: weatherData.current.wind_kph,
     };
 
     displayWeatherData(processedWeatherData);
@@ -32,5 +37,7 @@ function submitLocation() {
     const locationInput = document.getElementById("location");
     getWeather(locationInput.value);
 };
+
+getWeather("Rivne");
 
 submitLocationBtn.addEventListener("click", submitLocation);
