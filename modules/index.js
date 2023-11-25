@@ -1,5 +1,5 @@
 const key = "dfaddbaaa3d1411895a95255231211";
-import { displayWeatherData } from "./dom.js";
+import { displayWeatherData, showLoader, hideLoader } from "./dom.js";
 
 const submitLocationBtn = document.getElementById("submitLocation");
 
@@ -7,11 +7,14 @@ async function getWeather(location) {
     await location;
 
     try {
+        showLoader();
         const response = await fetch(`https://api.weatherapi.com/v1/current.json?key=${key}&q=${location}`, {mode: 'cors'});
         const weatherData = await response.json();
         processData(weatherData);
+        hideLoader();
     } catch (error) {
         console.log(error);
+        hideLoader();
     };
 };
 

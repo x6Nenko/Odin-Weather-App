@@ -22,6 +22,14 @@ function displayWeatherData(data) {
     windKph.innerText = `${data.wind_kph}`;
 };
 
+function showLoader() {
+    document.getElementById("loader").style.display = "block";
+    document.querySelector(".main-info-container").style.display = "none";
+}
 
+function hideLoader() {
+    document.getElementById("loader").style.display = "none";
+    document.querySelector(".main-info-container").style.display = "block";
+}
 
-export { displayWeatherData };
+export { displayWeatherData, showLoader, hideLoader };
